@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hamzah S. Ahmed | Economist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #1a2744;
+      --gold:   #c8a96e;
+      --cream:  #faf8f4;
+      --warm:   #f2ede4;
+      --muted:  #6b6560;
+      --text:   #2c2825;
+      --border: #e0d8cc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      height: 58px;
+    }
+    .nav-name {
+      font-family: 'Lora', serif;
+      color: var(--gold);
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── HOME ── */
+    #home {
+      padding-top: 7rem;
+      background: var(--cream);
+    }
+    .home-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 3.5rem;
+    }
+    .photo-wrap {
+      flex-shrink: 0;
+    }
+    .photo-wrap img {
+      width: 195px;
+      height: 195px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--gold);
+      display: block;
+    }
+    .home-text h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .home-text .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+    .home-text p {
+      font-size: 0.97rem;
+      color: var(--text);
+      max-width: 560px;
+      margin-bottom: 1rem;
+    }
+    .contact-line {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+    .contact-line a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .contact-line a:hover { color: var(--gold); }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+
+    /* ── RESEARCH ── */
+    #research { background: var(--warm); }
+
+    .paper {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .paper-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+    .status-wp   { background: #d4e8d4; color: #2d6a2d; }
+    .status-wip  { background: #e8e0d0; color: #7a6840; }
+
+    .paper-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+    .paper-authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .paper-authors strong { color: var(--text); font-weight: 500; }
+    .paper-abstract {
+      font-size: 0.9rem;
+      color: #4a4540;
+      line-height: 1.65;
+    }
+
+    /* ── CV ── */
+    #cv { background: var(--cream); }
+    .cv-description {
+      font-size: 0.96rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+    .cv-btn {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.65rem 1.8rem;
+      border-radius: 3px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .cv-btn:hover { background: var(--gold); color: var(--navy); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--warm); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 3rem;
+      font-size: 0.94rem;
+    }
+    .contact-item label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .contact-item a, .contact-item span {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .contact-item a:hover { border-color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: #888;
+      text-align: center;
+      padding: 1.4rem;
+      font-size: 0.8rem;
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 620px) {
+      .home-inner { flex-direction: column; align-items: center; text-align: center; }
+      .contact-line { justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#home">Hamzah S. Ahmed</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="container">
+    <div class="home-inner fade-in">
+      <div class="photo-wrap">
+        <img src="prof_pic.png" alt="Hamzah S. Ahmed" />
+      </div>
+      <div class="home-text">
+        <h1>Hamzah S. Ahmed</h1>
+        <p class="subtitle">Ph.D. Candidate in Economics &nbsp;·&nbsp; University of Southern California</p>
+        <p>
+          I am a third-year Ph.D. student in Economics at the University of Southern California. My research sits at the intersection of labor and public economics, with a focus on how policy affects the lives of children and families. I study questions in child welfare, education, and social policy using administrative data and quasi-experimental methods.
+        </p>
+        <p>
+          Before USC, I completed my M.A. in Economics at Duke University and my B.S. in Applied and Computational Mathematics at USC, where I graduated <em>summa cum laude</em>.
+        </p>
+        <div class="contact-line">
+          <a href="mailto:hamzahah@usc.edu">hamzahah@usc.edu</a>
+          <a href="https://www.linkedin.com/in/h-s-ahmed/" target="_blank">LinkedIn</a>
+          <a href="#cv">Curriculum Vitae</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="section-header">Research</h2>
+
+      <!-- Paper 1 -->
+      <div class="paper">
+        <span class="paper-status status-wp">Working Paper</span>
+        <p class="paper-title">Improving School Funding Decisions using AI: Evidence from Nevada</p>
+        <p class="paper-authors">Simon Quach &amp; <strong>Hamzah Ahmed</strong></p>
+        <p class="paper-abstract">
+          We estimate the causal effects of an AI-driven risk reclassification policy on school funding allocation and student outcomes in Nevada. Using reduced-form methods, we exploit the introduction of an algorithmic risk assessment tool that changed which schools were designated as at-risk, thereby reshaping the distribution of state funding across the public school system.
+        </p>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="paper">
+        <span class="paper-status status-wip">Work in Progress</span>
+        <p class="paper-title">Family Separation and Economic Hardship: Evidence from Foster Care Placements</p>
+        <p class="paper-authors"><strong>Hamzah Ahmed</strong></p>
+        <p class="paper-abstract">
+          This paper studies the economic consequences of child removal on birth parents. I exploit quasi-random variation in child removal decisions to identify the causal effects of foster care placement on parental labor market outcomes and economic wellbeing.
+        </p>
+      </div>
+
+      <!-- Paper 3 -->
+      <div class="paper">
+        <span class="paper-status status-wip">Work in Progress</span>
+        <p class="paper-title">Competition or Cream-Skimming? Charter School Expansion and Public School Quality in Nevada</p>
+        <p class="paper-authors"><strong>Hamzah Ahmed</strong></p>
+        <p class="paper-abstract">
+          I study the effects of charter school entry on traditional public school quality in Nevada, using administrative school-level data and quasi-experimental variation in charter school expansion. A key question is whether any observed effects on public schools reflect genuine competitive responses or compositional changes driven by selective enrollment.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CV -->
+<section id="cv">
+  <div class="container fade-in">
+    <h2 class="section-header">Curriculum Vitae</h2>
+    <p class="cv-description">
+      My CV includes my full research, teaching, and academic background. Last updated March 2026.
+    </p>
+    <a class="cv-btn" href="hamzah_ahmed_cv.pdf" target="_blank">Download CV (PDF)</a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container fade-in">
+    <h2 class="section-header">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <label>Email</label>
+        <a href="mailto:hamzahah@usc.edu">hamzahah@usc.edu</a>
+      </div>
+      <div class="contact-item">
+        <label>LinkedIn</label>
+        <a href="https://www.linkedin.com/in/h-s-ahmed/" target="_blank">linkedin.com/in/h-s-ahmed</a>
+      </div>
+      <div class="contact-item">
+        <label>Office</label>
+        <span>KAP 300, 3620 S Vermont Ave<br>Los Angeles, CA 90089</span>
+      </div>
+      <div class="contact-item">
+        <label>Phone</label>
+        <span>(503) 927-5269</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Hamzah S. Ahmed &nbsp;·&nbsp; University of Southern California
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
